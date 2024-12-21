@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <title>Test sobre Teoría de Conjuntos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Include MathJax -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1 id = "title-quiz">Test sobre Teoría de Conjuntos</h1>
+    <div id="quiz-container">
+        
+    <div id="question-area"></div>
+        <p id = "num-question"></p>
+        <div id="buttons-container" class="buttons"></div>
+            <div id="explanation-container"></div>
+                <button id="repeat-test-btn" style="display: none;">Repetir Test</button>
+                <button id="next-question-btn" style="display: none;">Siguiente pregunta</button>
+                <button id="prev-question-btn" style="display: none;">Pregunta anterior</button>
+        </div>
+    <footer>
+        Algunas explicaciones estan generadas por ChatGPT, valida la información.
+    </footer>
+    <script src = "lista_preguntas.js"></script>
+    <script>
+        // Recuperar los temas seleccionados del almacenamiento local
+        let temasSeleccionados = JSON.parse(localStorage.getItem('temasSeleccionados'));
+        temasSeleccionados = temasSeleccionados.map(tema => parseInt(tema, 10));
+
+        if (!temasSeleccionados) {
+        alert('No se seleccionaron temas. Redirigiendo...');
+        window.location.href = 'index.html';
+        }
+        console.log(temasSeleccionados);
+        // Filtrar preguntas según los temas seleccionados
+        const questions = listaPreguntas.filter(pregunta =>
+            temasSeleccionados.includes(pregunta.Tema)
+        );
+    </script>
+    <script src="logica_global.js"></script>
+</body>
+</html>

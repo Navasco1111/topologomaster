@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Test sobre Teoría de Conjuntos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Include MathJax -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, #286ba7, #042f84);
+            color: #b7b7b7;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255);
+            font-size: 4em;
+            padding-top: 1rem;
+            text-align: center;
+        }
+        h2{
+            color: rgb(255, 255, 255);
+            font-size: 2em;
+            padding-top: 1rem;
+            margin-left: 2rem;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 2rem;
+            margin-left: 2rem;
+            padding: 2em;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            background-color: #eaeaea;
+            color: rgb(0, 0, 0);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+            text-align: center;
+            width: 30%;
+            margin: 1rem;
+        }
+
+        .buttons a:hover {
+            background-color: #d9d9d9;
+        }
+
+        .checklist-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            margin-right: 2rem;
+            padding: 2em;
+            border-radius: 10px;
+        }
+
+        .checklist label {
+            margin-bottom: 0.5rem;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #select-all{
+            background-color: #eaeaea;
+            color: rgb(0, 0, 0);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .action-buttons button {
+            background-color: #eaeaea;
+            color: rgb(0, 0, 0);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+
+        }
+
+        .action-buttons button:hover {
+            background-color: #d9d9d9;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Tests de Topo</h1>
+    <h2>Test generales</h2>
+    <div class="checklist-section">
+        <div class="checklist">
+            <button id="select-all">Seleccionar Todos</button>
+            <label><input type="checkbox" name="tema" value="1"> Conjuntos</label>
+            <label><input type="checkbox" name="tema" value="2"> Espacios Métricos</label>
+            <label><input type="checkbox" name="tema" value="3"> Topologías</label>
+            <label><input type="checkbox" name="tema" value="4"> Bases</label>
+            <label><input type="checkbox" name="tema" value="5"> Cerrados, Subespacios...</label>
+            <label><input type="checkbox" name="tema" value="6"> Clausura, Interior...</label>
+        </div>
+        <div class="action-buttons">
+            <button id="start-test">Empezar Test</button>
+        </div>
+    </div>
+    
+    <h2>Test por temas</h2>
+    <div class="buttons">
+        <a href="tema1.html">Conjuntos</a>
+        <a href="tema2.html">Espacios Métricos</a>
+        <a href="tema3.html">Topologías</a>
+        <a href="tema4.html">Bases</a>
+        <a href="tema5.html">Cerrados, Subespacios...</a>
+        <a href="tema6.html">Clausura, Interior...</a>
+    </div>
+    
+
+    <script>
+        const selectAllButton = document.getElementById('select-all');
+        const startTestButton = document.getElementById('start-test');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        selectAllButton.addEventListener('click', () => {
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+        });
+
+        startTestButton.addEventListener('click', () => {
+            const selectedTopics = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            if (selectedTopics.length === 0) {
+                alert('Por favor, selecciona al menos un tema.');
+            } else {
+                // Guarda los temas seleccionados en el almacenamiento local
+                localStorage.setItem('temasSeleccionados', JSON.stringify(selectedTopics));
+
+                // Redirige al HTML del test
+                window.location.href = 'global.html';
+            }
+        });
+    </script>
+</body>
+</html>
+
