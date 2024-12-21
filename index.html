@@ -3,119 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Test sobre Teoría de Conjuntos</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Test Topo</title>
+    <link rel="stylesheet" href="style_index.css" />
     <!-- Include MathJax -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(90deg, #286ba7, #042f84);
-            color: #b7b7b7;
-        }
-
-        h1 {
-            color: rgb(255, 255, 255);
-            font-size: 4em;
-            padding-top: 1rem;
-            text-align: center;
-        }
-        h2{
-            color: rgb(255, 255, 255);
-            font-size: 2em;
-            padding-top: 1rem;
-            margin-left: 2rem;
-        }
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            margin-right: 2rem;
-            margin-left: 2rem;
-            padding: 2em;
-        }
-
-        .buttons a {
-            text-decoration: none;
-            background-color: #eaeaea;
-            color: rgb(0, 0, 0);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            font-size: 1em;
-            text-align: center;
-            width: 30%;
-            margin: 1rem;
-        }
-
-        .buttons a:hover {
-            background-color: #d9d9d9;
-        }
-
-        .checklist-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .checklist {
-            display: flex;
-            flex-direction: column;
-            margin-right: 2rem;
-            padding: 2em;
-            border-radius: 10px;
-        }
-
-        .checklist label {
-            margin-bottom: 0.5rem;
-            font-size: 1.2em;
-            color: #ffffff;
-        }
-
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        #select-all{
-            background-color: #eaeaea;
-            color: rgb(0, 0, 0);
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-bottom: 1rem;
-        }
-
-        .action-buttons button {
-            background-color: #eaeaea;
-            color: rgb(0, 0, 0);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.5em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-bottom: 1rem;
-
-        }
-
-        .action-buttons button:hover {
-            background-color: #d9d9d9;
-        }
-
-
-    </style>
 </head>
 <body>
     <h1>Tests de Topo</h1>
@@ -137,12 +28,12 @@
     
     <h2>Test por temas</h2>
     <div class="buttons">
-        <a href="tema1.html">Conjuntos</a>
-        <a href="tema2.html">Espacios Métricos</a>
-        <a href="tema3.html">Topologías</a>
-        <a href="tema4.html">Bases</a>
-        <a href="tema5.html">Cerrados, Subespacios...</a>
-        <a href="tema6.html">Clausura, Interior...</a>
+        <p data-tema = 1>Conjuntos</p>
+        <p data-tema = 2>Espacios Métricos</p>
+        <p data-tema = 3>Topologías</p>
+        <p data-tema = 4>Bases</p>
+        <p data-tema = 5>Cerrados, Subespacios...</p>
+        <p data-tema = 6>Clausura, Interior...</p>
     </div>
     
 
@@ -166,10 +57,22 @@
             } else {
                 // Guarda los temas seleccionados en el almacenamiento local
                 localStorage.setItem('temasSeleccionados', JSON.stringify(selectedTopics));
+                localStorage.setItem('numeroPreguntas', "20");
 
                 // Redirige al HTML del test
                 window.location.href = 'global.html';
             }
+        });
+
+        //Tambien añadimos la logica de los botones
+        const buttons = document.querySelectorAll('.buttons p');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tema = button.dataset.tema;
+                localStorage.setItem('temasSeleccionados', JSON.stringify([tema]));
+                localStorage.setItem('numeroPreguntas', "Todas");
+                window.location.href = 'global.html';
+            });
         });
     </script>
 </body>

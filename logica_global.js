@@ -6,8 +6,6 @@ let currentQuestion = 0;
 let answeredQuestions = 0;
 let number_correct_questions = 0;
 
-const maxQuestions = 20;
-
 //Esta funcion quita tambien la pregunta del array de preguntas restantes
 function getRandomQuestion() {
     const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
@@ -29,7 +27,7 @@ function showQuestion(questionObj) {
     explanationContainer.innerHTML = "";
     buttonsContainer.innerHTML = "";
     explanationContainer.style.display = "none";
-    title.innerHTML = "Conjuntos: "+ (currentQuestion + 1) + "/" + maxQuestions;
+    title.innerHTML = "Pregunta: "+ (currentQuestion + 1) + "/" + maxQuestions;
 
 
     // Trigger MathJax to render LaTeX

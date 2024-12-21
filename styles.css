@@ -147,3 +147,22 @@ footer{
     text-align: center;
     padding: 10px 0;
 }
+
+
+@media (max-width: 480px) {
+    #quiz-container {
+        width: 80%;
+    }
+    .question-text {
+        font-size: 15px;
+    }
+    #explanation-container{
+        font-size: 12;
+    }
+    .explanation {
+        font-size: 12;
+    }
+    #prev-question-btn {
+        margin-top: 15px;
+    }
+}
