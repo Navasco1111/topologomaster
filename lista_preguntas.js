@@ -963,7 +963,7 @@ const listaPreguntas = [
         "Pregunta": "¿La familia \\( \\{(a, a+1) \\ | \\ a \\in \\mathbb{Q}\\} \\) es base de la topología usual?",
         "Respuesta": "Falso",
         "Tema": 4,
-        "Explicación": "Los intervalos definidos sobre \\( \\mathbb{Q} \\) no cubren puntos irracionales, por lo que no cumplen las condiciones necesarias para ser base de la topología usual."
+        "Explicación": "Podríamos tomar un intervalo con extremos racionales, y no hay forma de escribir dicho intervalo como unión de elementos de \\( \\{(a, a+1) \\ | \\ a \\in \\mathbb{Q}\\} \\)"
     },
     {
         "Pregunta": "¿La familia \\( \\{(a, b) \\cup (a+\\varepsilon, b+\\varepsilon) \\ | \\ a, b, \\varepsilon \\in \\mathbb{R}, a < b \\} \\) es base de la topología usual?",
@@ -996,7 +996,7 @@ const listaPreguntas = [
         "Explicación": "Dentro de esa familia están los conjuntos unipuntuales, que son suficientes para generar todos los subconjuntos de \\(X\\), cumpliendo así las condiciones para ser una base."
     },
     {
-        "Pregunta": "¿La familia \\(\\{[a, b] \\ | \\ a, b \\in \\mathbb{R}, a < b\\}\\) es base de la topología discreta sobre \\(\\mathbb{R}\\)?",
+        "Pregunta": "¿La familia \\(\\{[a, b) \\ | \\ a, b \\in \\mathbb{R}, a < b\\}\\) es base de la topología discreta sobre \\(\\mathbb{R}\\)?",
         "Respuesta": "Falso",
         "Tema": 4,
         "Explicación": "Todos los conjuntos de esa familia son infinitos y no pueden estar contenidos en un conjunto unipuntual, requisito indispensable para la topología discreta."
@@ -1032,7 +1032,7 @@ const listaPreguntas = [
         "Explicación": "En \\(\\mathbb{R}^2\\), considera las bases \\(\\mathcal{B}_H\\) y \\(\\mathcal{B}_V\\) formadas por rectas horizontales y verticales respectivamente. La familia \\(\\mathcal{B}\\) formada por las uniones de estas rectas no es una base, ya que la intersección de dos elementos en \\(\\mathcal{B}\\) no puede contener una cruz completa."
     },
     {
-        "Pregunta": "¿La familia \\(\\{[a, b] \\ | \\ a, b \\in \\mathbb{R}\\} \\cup \\{[a, b] \\ | \\ a, b \\in \\mathbb{R}\\}\\) es subbase de la topología usual sobre los reales?",
+        "Pregunta": "¿La familia \\(\\{[a, b) \\ | \\ a, b \\in \\mathbb{R}\\} \\cup \\{(a, b] \\ | \\ a, b \\in \\mathbb{R}\\}\\) es subbase de la topología usual sobre los reales?",
         "Respuesta": "Falso",
         "Tema": 4,
         "Explicación": "Los conjuntos de esta familia no son abiertos, por lo que no cumplen las condiciones para ser una subbase de la topología usual."
@@ -1072,5 +1072,341 @@ const listaPreguntas = [
         "Respuesta": "Verdadero",
         "Tema": 4,
         "Explicación": "Cumple la definición de base de entornos de \\(0\\), ya que cada intervalo contiene a \\(0\\) y puede cubrir cualquier entorno más pequeño alrededor de \\(0\\)."
+    },
+    {
+        "Pregunta": "La función identidad entre dos espacios topológicos es siempre continua.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Para que la identidad esté definida, el conjunto subyacente debe ser el mismo, pero no necesariamente la topología. Por ejemplo, en \\( X = \\{0, 1\\} \\), con la topología indiscreta \\( \\mathcal{I} = \\{\\emptyset, X\\} \\) y la topología de Sierpinski \\( \\mathcal{S} \\), la identidad \\( (X, \\mathcal{I}) \\to (X, \\mathcal{S}) \\) no es continua. Esto se debe a que la preimagen de un abierto en \\( \\mathcal{S} \\) puede no ser un abierto en \\( \\mathcal{I} \\)."
+    },
+    {
+        "Pregunta": "Sea \\( C \\) un cerrado de un espacio topológico \\( X \\). Si \\( A \\) es abierto en \\( C \\) como subespacio, entonces no puede ser abierto en \\( X \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Por ejemplo, si \\( C = [0, 1] \\) y \\( A = (0, 1) \\) en la recta real, \\( A \\) es abierto en \\( C \\) como subespacio (porque \\( A \\cap C = (0, 1) \\)), pero también es abierto en \\( X \\) (la recta real) bajo la topología usual. Esto demuestra que \\( A \\) puede ser abierto tanto en \\( C \\) como en \\( X \\)."
+    },
+    {
+        "Pregunta": "Una aplicación \\( f : (X, \\mathcal{T}_X) \\to (Y, \\mathcal{T}_Y) \\) entre espacios topológicos es continua si \\( \\forall U \\in \\mathcal{T}_Y, f^{-1}(U) \\in \\mathcal{T}_X \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Por definición, una función \\( f \\) entre dos espacios topológicos es continua si la preimagen de cualquier conjunto abierto en el espacio de llegada \\( (Y, \\mathcal{T}_Y) \\) es un conjunto abierto en el espacio de partida \\( (X, \\mathcal{T}_X) \\). Esto cumple exactamente lo indicado en la afirmación."
+    },
+    {
+        "Pregunta": "La intersección arbitraria de cerrados es un conjunto cerrado.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En un espacio topológico, un conjunto se considera cerrado si su complemento es abierto. Dado que la unión de conjuntos abiertos es abierta, el complemento de una intersección arbitraria de conjuntos cerrados sigue siendo abierto, lo que garantiza que la intersección sea cerrada."
+    },
+    {
+        "Pregunta": "Si la identidad \\( 1_X : (X, \\mathcal{T}_1) \\to (X, \\mathcal{T}_2) \\) es continua, entonces \\( \\mathcal{T}_2 \\subseteq \\mathcal{T}_1 \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Por definición de continuidad, una función es continua si la preimagen de cualquier conjunto abierto en el codominio pertenece a la topología del dominio. En este caso, si \\( U \\in \\mathcal{T}_2 \\), entonces \\( 1_X^{-1}(U) = U \\in \\mathcal{T}_1 \\), lo que implica que \\( \\mathcal{T}_2 \\subseteq \\mathcal{T}_1 \\)."
+    },
+    {
+        "Pregunta": "Si un conjunto es abierto, no puede ser cerrado.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "En un espacio topológico, un conjunto puede ser simultáneamente abierto y cerrado (conocido como 'clopen') si cumple ambas definiciones. Por ejemplo, en la topología trivial, el conjunto vacío \\( \\emptyset \\) y el espacio completo son tanto abiertos como cerrados."
+    },
+    {
+        "Pregunta": "La unión arbitraria de cerrados es un cerrado.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "En un espacio topológico, la unión arbitraria de conjuntos cerrados no siempre es cerrada. Por ejemplo, en \\( \\mathbb{R} \\) con la topología usual, considere \\( \\bigcup_{r \\in (0,1)} [-r, r] = (0,1) \\). Aquí, cada \\( [-r, r] \\) es cerrado, pero su unión \\( (0,1) \\) es abierto, lo que demuestra que la afirmación es falsa."
+    },
+    {
+        "Pregunta": "Una aplicación \\( f : (X, \\mathcal{T}_X) \\to (Y, \\mathcal{T}_Y) \\) entre espacios topológicos es continua si \\( \\forall U \\in \\mathcal{T}_X, f(U) \\in \\mathcal{T}_Y \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "La continuidad de una función entre espacios topológicos se define mediante la preimagen de los conjuntos abiertos, no la imagen. Por ejemplo, la identidad en \\( \\mathbb{R} \\) con la topología usual en el dominio y la topología discreta en el codominio no es continua bajo esta definición. Por lo tanto, la afirmación es falsa."
+    },
+    {
+        "Pregunta": "Sea \\( C \\) un cerrado de un espacio topológico \\( X \\). Si \\( A \\) es abierto en \\( C \\) como subespacio, entonces no puede ser cerrado en \\( X \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "En un espacio topológico, un conjunto puede ser cerrado en el espacio completo y abierto en un subespacio. Por ejemplo, si \\( C = [0,1] \\) y \\( A = [0,1] \\) en \\( \\mathbb{R} \\), \\( A \\) es abierto en \\( C \\) como subespacio, pero también es cerrado en \\( \\mathbb{R} \\). Esto demuestra que la afirmación es falsa."
+    },
+    {
+        "Pregunta": "Una aplicación \\( f : (X, \\mathcal{T}_X) \\to (Y, \\mathcal{T}_Y) \\) entre espacios topológicos es continua si \\( \\exists U \\in \\mathcal{T}_X, \\text{ tal que } f(U) \\in \\mathcal{T}_Y \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Esta condición es trivialmente cumplida por cualquier función al tomar \\( U = \\emptyset \\), ya que \\( f(\\emptyset) = \\emptyset \\), que es abierto en cualquier topología. Esto no implica que la función sea continua, ya que la continuidad requiere que la preimagen de cualquier conjunto abierto en el codominio sea abierto en el dominio."
+    },
+    {
+        "Pregunta": "Sea \\( C \\) un abierto de un espacio topológico \\( X \\). Si \\( A \\) es abierto en \\( C \\) como subespacio, entonces es abierto en \\( X \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Si \\( A \\) es \\( C \\)-abierto, entonces \\( A = C \\cap B \\), donde \\( B \\) es un conjunto abierto en \\( X \\). La intersección de dos conjuntos abiertos (\\( C \\) y \\( B \\)) es abierta en \\( X \\), por lo que \\( A \\) también es abierto en \\( X \\)."
+    },
+    {
+        "Pregunta": "Sea \\( C \\) un cerrado de un espacio topológico \\( X \\). Si \\( A \\) es cerrado en \\( C \\) como subespacio, entonces es cerrado en \\( X \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Si \\( A \\) es \\( C \\)-cerrado, entonces \\( A = C \\cap B \\), donde \\( B \\) es un conjunto cerrado en \\( X \\). La intersección de dos conjuntos cerrados (\\( C \\) y \\( B \\)) es cerrado en \\( X \\), lo que implica que \\( A \\) también es cerrado en \\( X \\)."
+    },
+    {
+        "Pregunta": "Sea \\( f : X \\to Y \\) una función no necesariamente continua entre espacios topológicos. Si \\( A \\subseteq X \\), entonces \\( f \\) es continua si y solo si \\( f|_A \\) es continua.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "La continuidad de una función \\( f \\) en el espacio completo \\( X \\) no puede ser inferida únicamente a partir de la continuidad de su restricción \\( f|_A \\) a un subconjunto \\( A \\subseteq X \\). La continuidad de \\( f \\) requiere verificar que la preimagen de cualquier conjunto abierto en \\( Y \\) sea abierto en todo \\( X \\)."
+    },
+    {
+        "Pregunta": "Una aplicación \\( f : (X, \\mathcal{T}_X) \\to (Y, \\mathcal{T}_Y) \\) entre espacios topológicos es continua si \\( \\exists U \\in \\mathcal{T}_Y, \\text{ tal que } f^{-1}(U) \\in \\mathcal{T}_X \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Esta condición es trivialmente cumplida por cualquier función al tomar \\( U = \\emptyset \\), ya que \\( f^{-1}(\\emptyset) = \\emptyset \\), que es abierto en cualquier topología. Esto no implica que la función sea continua, ya que la continuidad requiere que la preimagen de todo conjunto abierto en \\( Y \\) sea abierto en \\( X \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( \\mathcal{B} \\) una base de ese espacio. \\( C \\subseteq X \\) es cerrado si y solo si \\( \\forall x \\in C, \\exists B \\in \\mathcal{B} \\text{ tal que } x \\in B \\subseteq C. \\)",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "La propiedad dada describe una condición de vecindades locales de puntos en \\( C \\), pero no caracteriza necesariamente la cerradura de \\( C \\) en el sentido topológico. Para que \\( C \\) sea cerrado, su complemento debe ser abierto, lo cual no es garantizado por esta condición en términos de la base \\( \\mathcal{B} \\)."
+    },
+    {
+        "Pregunta": "Toda biyección continua es un homeomorfismo.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Una biyección continua no necesariamente es un homeomorfismo, ya que para serlo debe cumplir además que su inversa sea continua. Por ejemplo, una biyección continua entre \\( \\mathbb{R} \\) con la topología usual y \\( \\mathbb{R} \\) con una topología distinta (como la trivial) no sería un homeomorfismo."
+    },
+    {
+        "Pregunta": "Los cerrados en \\( \\mathbb{R} \\) son conjuntos acotados.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "En \\( \\mathbb{R} \\) con la topología usual, hay conjuntos cerrados no acotados, como el conjunto \\( \\mathbb{R} \\) completo o el intervalo \\( [0, \\infty) \\). La acotación no es una propiedad necesaria para que un conjunto sea cerrado."
+    },
+    {
+        "Pregunta": "Toda aplicación en \\( f : X \\to Y \\) entre espacios topológicos donde \\( Y \\) tiene la topología indiscreta es continua.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En la topología indiscreta, los únicos conjuntos abiertos son el vacío y el espacio completo. Esto implica que la preimagen de cualquier conjunto abierto en \\( Y \\) (vacío o el espacio completo) es automáticamente abierto en \\( X \\), lo que garantiza que cualquier función \\( f \\) sea continua."
+    },
+    {
+        "Pregunta": "El conjunto \\((-\\pi, \\pi) \\cap \\mathbb{Q}\\) es cerrado en la topología usual sobre \\( \\mathbb{Q} \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En la topología usual sobre \\( \\mathbb{Q} \\), el conjunto \\((-\\pi, \\pi) \\cap \\mathbb{Q}\\) es cerrado porque su complemento en \\( \\mathbb{Q} \\) es un conjunto abierto relativo, es decir, es la intersección de un abierto en \\( \\mathbb{R} \\) con \\( \\mathbb{Q} \\)."
+    },
+    {
+        "Pregunta": "Sean \\( X \\) e \\( Y \\) dos espacios topológicos y \\( f : X \\to Y \\) una aplicación continua. Entonces, para cada \\( U \\in \\mathcal{T}_X \\), se tiene que \\( f(U) \\in \\mathcal{T}_Y \\).",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "La continuidad de una función \\( f \\) asegura que la preimagen de un abierto en \\( Y \\) sea abierto en \\( X \\), pero no necesariamente que la imagen de un abierto en \\( X \\) sea abierto en \\( Y \\). Por ejemplo, la función constante \\( f(x) = 0 \\) es continua, pero la imagen de cualquier conjunto abierto no vacío es \\( \\{0\\} \\), que no es abierto si \\( Y \\) tiene más de un punto y la topología usual."
+    },
+    {
+        "Pregunta": "Una aplicación biyectiva entre dos espacios topológicos es continua.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "Una aplicación biyectiva no necesariamente es continua. Un contraejemplo es una biyección entre un conjunto con la topología indiscreta y otro con la topología discreta (si tienen más de un punto). En este caso, la función no preserva la estructura topológica requerida para la continuidad."
+    },
+    {
+        "Pregunta": "Sea \\( h : X \\to Y \\) un homeomorfismo. Entonces \\( h \\) es biyectiva y continua.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Es parte de la definición de un homeomorfismo que \\( h \\) sea una función biyectiva, continua y cuya inversa también sea continua. Por lo tanto, la afirmación es verdadera."
+    },
+    {
+        "Pregunta": "Toda biyección continua y abierta es un homeomorfismo.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Si una biyección es continua y abierta, entonces su inversa también es continua, cumpliendo la definición de un homeomorfismo. Esto es porque ser 'abierta' implica que las imágenes de los abiertos son abiertos, lo que garantiza la continuidad de la inversa."
+    },
+    {
+        "Pregunta": "Sea \\( (X, \\mathcal{T}) \\) un espacio topológico y \\( A \\) un subespacio de \\( X \\). La inclusión \\( A \\hookrightarrow X \\) es una aplicación continua.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Por construcción de la topología subespacio, la inclusión \\( A \\hookrightarrow X \\) es siempre continua, ya que los abiertos en \\( A \\) son intersecciones de abiertos en \\( X \\) con \\( A \\), lo que asegura la continuidad."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( \\mathcal{B} \\) una base de ese espacio. \\( C \\subseteq X \\) es cerrado si y solo si \\( \\forall x \\notin C, \\exists B \\in \\mathcal{B} \\text{ tal que } x \\in B \\subseteq X \\setminus C. \\)",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Por definición, un conjunto \\( C \\) es cerrado si su complemento es abierto. La condición enunciada utiliza la base \\( \\mathcal{B} \\) para caracterizar la apertura del complemento de \\( C \\), lo que implica que \\( C \\) es cerrado."
+    },
+    {
+        "Pregunta": "\\( \\mathbb{Q} \\) es un conjunto cerrado en \\( \\mathbb{R} \\) con la topología discreta.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En la topología discreta, todos los subconjuntos son abiertos y cerrados. Por lo tanto, \\( \\mathbb{Q} \\), como subconjunto de \\( \\mathbb{R} \\), es cerrado en la topología discreta."
+    },
+    {
+        "Pregunta": "Una aplicación \\( f : (X, \\mathcal{T}_X) \\to (Y, \\mathcal{T}_Y) \\) que es constante es continua.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "Si \\( f \\) es constante, su preimagen de cualquier conjunto abierto en \\( Y \\) es el vacío o todo el dominio \\( X \\), ambos de los cuales son abiertos en \\( X \\). Por lo tanto, \\( f \\) es continua."
+    },
+    {
+        "Pregunta": "Toda aplicación en \\( f : X \\to Y \\) entre espacios topológicos donde \\( X \\) tiene la topología discreta es continua.",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En la topología discreta, todos los subconjuntos de \\( X \\) son abiertos. Por lo tanto, para cualquier conjunto abierto \\( U \\) en \\( Y \\), la preimagen \\( f^{-1}(U) \\) será un subconjunto de \\( X \\) y, por lo tanto, abierto. Esto asegura que \\( f \\) es continua."
+    },
+    {
+        "Pregunta": "El conjunto \\([-\\pi, \\pi] \\cap \\mathbb{Q}\\) es abierto en la topología usual sobre \\( \\mathbb{Q} \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 5,
+        "Explicación": "En la topología usual sobre \\( \\mathbb{Q} \\), el conjunto \\([-\\pi, \\pi] \\cap \\mathbb{Q}\\) es abierto porque es la intersección de un abierto en \\( \\mathbb{R} \\) (\\([-\\pi, \\pi]\\)) con \\( \\mathbb{Q} \\), que es abierto relativo en \\( \\mathbb{Q} \\)."
+    },
+    {
+        "Pregunta": "Una unión de infinitos cerrados nunca es cerrada.",
+        "Respuesta": "Falso",
+        "Tema": 5,
+        "Explicación": "La afirmación es incorrecta, ya que existen uniones de infinitos conjuntos cerrados que son cerradas. Por ejemplo, en \\( \\mathbb{R} \\), la unión de todos los cerrados \\( \\{x\\} \\) para \\( x \\in \\mathbb{R} \\) es \\( \\mathbb{R} \\), que es cerrado. Esto demuestra que una unión infinita de conjuntos cerrados puede ser cerrada."
+    },
+    {
+        "Pregunta": "¿Existe un espacio topológico \\( X \\) en el que todos los subconjuntos son densos (excepto \\( \\emptyset \\))?",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Esto es cierto en la topología indiscreta, ya que en dicha topología todos los subconjuntos no vacíos son densos, y el único subconjunto que no es denso es el vacío."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico, y \\( f : X \\to X \\) una biyección. \\( f \\) es un homeomorfismo si y solo si para todo \\( A \\subseteq X \\), \\( \\overline{f(A)} = f(\\overline{A}) \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Esta propiedad es característica de los homeomorfismos, ya que estos preservan la estructura topológica del espacio, incluyendo la cerradura de conjuntos. Es decir, la preimagen de un cerrado es cerrado, lo que satisface la condición dada."
+    },
+    {
+        "Pregunta": "¿La clausura de un abierto es estrictamente mayor que el propio abierto?",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Esto no es necesariamente cierto, ya que depende del contexto del espacio topológico. Por ejemplo, el total, que es un conjunto abierto y cerrado."
+    },
+    {
+        "Pregunta": "En un espacio topológico \\( X \\) se tiene que para cualquier conjunto \\( A \\) se cumple que \\( \\partial A \\subseteq \\overline{A} \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Sabemos que el borde de \\( A \\) está definido como \\( \\partial A = \\overline{A} \\cap \\overline{X - A} \\). Por definición, siempre estará contenido en \\( \\overline{A} \\), lo cual verifica la afirmación."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y sea \\( Y \\) un subespacio de \\( X \\) con la topología inducida. Si \\( A \\subset Y \\), entonces \\( \\text{Int}_Y(A) = Y \\cap \\text{Int}_X(A) \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Por ejemplo, si \\( X = \\mathbb{R} \\) con la topología euclidiana y \\( Y = A = [0, 1] \\), entonces \\( \\text{Int}_Y(A) = [0, 1] \\), mientras que \\( Y \\cap \\text{Int}_X(A) = (0, 1) \\), lo que contradice la afirmación."
+    },
+    {
+        "Pregunta": "Sea \\( A \\) un subconjunto no vacío en un espacio topológico \\( X \\). Si \\( \\text{Int}(A) = \\emptyset \\), entonces \\( \\text{Int}(X - A) \\neq \\emptyset \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo es \\( A = \\mathbb{Q} \\) (los números racionales) en la recta real usual \\( \\mathbb{R} \\). En este caso, \\( \\text{Int}(A) = \\emptyset \\) y \\( \\text{Int}(X - A) = \\emptyset \\) también, ya que ni \\( \\mathbb{Q} \\) ni su complemento contienen puntos interiores en \\( \\mathbb{R} \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y sea \\( A \\subset X \\). Si unimos el interior y el exterior de \\( A \\), obtenemos el total \\( X \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "En la recta real, \\( A = [0, 1] \\) es un contraejemplo, ya que \\( \\text{Int}(A) \\cup \\text{Ext}(A) \\) no cubre el total \\( X \\), pues queda el borde \\( \\partial A \\) sin incluir."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A \\) y \\( B \\) dos subconjuntos. Entonces \\( A \\subset B \\iff A' \\subset B' \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Los números racionales \\( \\mathbb{Q} \\) y los irracionales \\( \\mathbb{R} \\setminus \\mathbb{Q} \\) tienen el mismo conjunto derivado (todos los reales), pero son disjuntos. Solo la implicación \\( \\impliedby \\) es válida."
+    },
+    {
+        "Pregunta": "Sea \\( D \\) un denso en un espacio topológico \\( X \\). Entonces \\( \\text{Int}(\\overline{D}) = \\emptyset \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Si \\( D \\) es denso, entonces su clausura \\( \\overline{D} \\) es el espacio total \\( X \\), y su interior es \\( X \\), no \\( \\emptyset \\), salvo que \\( X = \\emptyset \\)."
+    },
+    {
+        "Pregunta": "Sea \\( (X, d) \\) un espacio métrico y sea \\( x \\in X \\). Entonces \\( \\partial B(x, r) = S(x, r) \\) o \\( \\partial D(x, r) = S(x, r) \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Considera la métrica discreta en algún conjunto, como los números reales, por ejemplo. En este caso, cualquier conjunto tiene frontera vacía, lo que contradice la afirmación."
+    },
+    {
+        "Pregunta": "En un espacio topológico \\( X \\), se tiene que para cualquier conjunto \\( A \\) se cumple que \\( \\partial A \\subset A \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo es \\( A = (0, 1) \\) en los números reales con la topología usual. En este caso, la frontera de \\( A \\) no está contenida en \\( A \\), ya que incluye los puntos \\( 0 \\) y \\( 1 \\)."
+    },
+    {
+        "Pregunta": "En un espacio topológico \\( X \\), dado \\( A \\), se tiene que \\( \\text{Int}(A) = \\text{Int}(\\overline{A}) \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo es \\( A = \\mathbb{Q} \\) (los números racionales) en la recta real. En este caso, \\( \\text{Int}(A) \\) y \\( \\text{Int}(\\overline{A}) \\) no coinciden, ya que \\( \\mathbb{Q} \\) no tiene puntos interiores, mientras que \\( \\overline{\\mathbb{Q}} = \\mathbb{R} \\)."
+    },
+    {
+        "Pregunta": "En la topología discreta sobre los reales, la clausura de \\( \\mathbb{Q} \\) es \\( \\mathbb{R} \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "En la topología discreta, todos los conjuntos son cerrados. Por lo tanto, \\( \\mathbb{Q} \\) ya es cerrado y no puede tener como clausura a \\( \\mathbb{R} \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A \\) un subconjunto, entonces \\( A \\) y \\( A' \\) pueden ser disjuntos, uno estrictamente contenido en el otro, o incluso iguales.",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Ejemplos: \\( A = \\{ \\frac{1}{n} \\}_{n \\in \\mathbb{N}} \\cup \\{ 0 \\} \\), aquí \\( A' = \\{ 0 \\} \\subset A \\). En otro caso, \\( [0,1]' = [0,1] \\), mostrando igualdad. Por último, \\( \\mathbb{Q}' = \\mathbb{R} \\), siendo disjuntos en \\( \\mathbb{R} \\setminus \\mathbb{Q} \\)."
+    },
+    {
+        "Pregunta": "La clausura de \\( \\mathbb{R} \\times (0, \\infty) \\) en el plano euclidiano es \\( \\mathbb{R} \\times \\{0\\} \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "La clausura de \\( \\mathbb{R} \\times (0, \\infty) \\) en el plano euclidiano es \\( \\mathbb{R} \\times [0, \\infty) \\), no \\( \\mathbb{R} \\times \\{0\\} \\), ya que incluye todos los puntos del intervalo cerrado."
+    },
+    {
+        "Pregunta": "En un espacio topológico \\( X \\), dado \\( A \\), se tiene que \\( \\overline{A} = \\overline{Int(A)} \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo es \\( A = \\mathbb{Q} \\) (los números racionales) en la recta real. La clausura de \\( \\mathbb{Q} \\) es \\( \\mathbb{R} \\), mientras que el interior de \\( \\mathbb{Q} \\) es vacío, lo que muestra que \\( \\overline{A} \\neq \\text{Int}(A) \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A, B \\subset X \\). Entonces \\( \\partial (A \\cup B) = \\partial A \\cup \\partial B \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "En la recta real con la topología usual, considera \\( A = [0, 1] \\) y \\( B = [0, 2] \\). La frontera de \\( A \\cup B \\) no coincide con la unión de las fronteras de \\( A \\) y \\( B \\)."
+    },
+    {
+        "Pregunta": "En la topología usual sobre los reales, la clausura de \\( \\mathbb{R} \\setminus \\mathbb{Q} \\) es \\( \\mathbb{R} \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "En la topología usual, cualquier abierto no vacío contiene puntos irracionales, lo que implica que la clausura de \\( \\mathbb{R} \\setminus \\mathbb{Q} \\) es el espacio total \\( \\mathbb{R} \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y sea \\( A \\) un subconjunto. Entonces \\( \\partial A = \\partial \\text{Int}(A) \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo son los números racionales \\( \\mathbb{Q} \\) en la recta real, donde la frontera de \\( \\mathbb{Q} \\) no coincide con la frontera de su interior (que es vacío)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A, B \\subset X \\) tales que \\( A \\subset B \\). Entonces \\( \\partial A \\subset \\partial B \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Un contraejemplo es \\( A = [0,1] \\subset B = \\mathbb{R} \\) en la topología usual. Aquí, \\( \\partial A = \\{0,1\\} \\) pero \\( \\partial B = \\emptyset \\), lo que muestra que \\( \\partial A \\not\\subset \\partial B \\)."
+    },
+    {
+        "Pregunta": "Sea \\( f : X \\to Y \\) una aplicación continua y suprayectiva. Si \\( A \\) es un subconjunto denso de \\( X \\), \\( f(A) \\) es denso en \\( f(X) \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "La preimagen de un abierto no vacío en \\( f(X) \\) es un abierto no vacío en \\( X \\), que debe intersectar a \\( A \\) porque \\( A \\) es denso. Por lo tanto, \\( f(A) \\) es denso en \\( f(X) \\)."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico. Entonces el derivado de un subconjunto cualquiera de \\( X \\) es un cerrado de \\( X \\).",
+        "Respuesta": "Falso",
+        "Tema": 6,
+        "Explicación": "Considera \\( X \\) con la topología indiscreta y sea \\( \\{x\\} \\) un subconjunto unipuntual. En este caso, \\( \\{x\\}' \\) no es necesariamente cerrado ni abierto, ya que los conjuntos derivados no siempre cumplen esta propiedad en la topología indiscreta."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Entonces es posible que \\( \\overline{A} = \\emptyset \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Esto es cierto si y solo si \\( A = \\emptyset \\), ya que la clausura de un conjunto vacío sigue siendo vacío."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Las aplicaciones \\( A \\mapsto \\overline{A} \\) y \\( A \\mapsto \\text{Int}(A) \\) son monótonas con respecto a la inclusión.",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Sabemos que \\( A \\subset \\overline{A} \\) (\\( \\overline{A} \\) es el cerrado más pequeño que contiene a \\( A \\)) y \\( \\text{Int}(A) \\subset A \\) (\\( \\text{Int}(A) \\) es el mayor abierto contenido en \\( A \\)). Por lo tanto, estas aplicaciones son monótonas con respecto a la inclusión."
+    },
+    {
+        "Pregunta": "Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Entonces es posible que \\( \\text{Int}(A) = X \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "Esto es posible si y solo si \\( A = X \\), ya que el interior de \\( A \\) coincide con \\( X \\) únicamente cuando \\( A \\) es el conjunto total."
+    },
+    {
+        "Pregunta": "Considera la topología indiscreta sobre \\( X \\). Entonces el conjunto \\( \\{x\\} \\) es denso para cualquier \\( x \\in X \\).",
+        "Respuesta": "Verdadero",
+        "Tema": 6,
+        "Explicación": "En la topología indiscreta, el único conjunto abierto no vacío es \\( X \\). Por lo tanto, cualquier conjunto no vacío, incluido \\( \\{x\\} \\), es denso en \\( X \\)."
     }
 ]
