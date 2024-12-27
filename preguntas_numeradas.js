@@ -123,7 +123,7 @@ const listaPreguntas = [
         "Pregunta": "21) Sean \\( f : X \\to Y \\) una aplicación inyectiva, y \\( A \\subseteq X \\). Entonces  \\[ f^{-1}(f(A)) \\subseteq A. \\]",
         "Respuesta": "Verdadero",
         "Tema": 1,
-        "Explicación": "La afirmación es verdadera porque \\( f \\) es inyectiva, lo que implica que cada elemento en la imagen \\( f(A) \\) proviene de un único elemento en \\( A \\). Por lo tanto, al tomar la preimagen \\( f^{-1}(f(A)) \\), no se incluyen elementos fuera de \\( A \\), ya que no hay puntos fuera de \\( A \\) cuya imagen coincida con puntos de \\( A \\). Esto asegura que: \\[ f^{-1}(f(A)) \\subseteq A. \\]"
+        "Explicación": "Probamos el contenido. Sea \( a \in f^{-1}(f(a)) \), entonces \( f(a) \in f(A) \) por definición. \\. Por lo tanto, existe \( a' \in A \) tal que \( f(a') = f(a) \). \\, y como \( f \) es inyectiva, se deduce que \( a = a' \), y dado que \( a' \in A \), entonces \( a \in A \)."
     },
     {
         "Pregunta": "22) Sean \\( f : X \\to Y \\) una aplicación inyectiva, y \\( B \\subseteq Y \\). Entonces  \\[ B \\subseteq f(f^{-1}(B)). \\]",
@@ -279,7 +279,7 @@ const listaPreguntas = [
         "Pregunta": "47) En un espacio métrico, un disco de radio positivo nunca está contenido en la bola del mismo centro y radio.",
         "Respuesta": "Falso",
         "Tema": 2,
-        "Explicación": "La afirmación es falsa porque, en un espacio métrico, el disco cerrado de radio \\( r \\), definido como \\( \\{x \\in X : d(c, x) \\leq r\\} \\), incluye a la bola abierta de radio \\( r \\), definida como \\( \\{x \\in X : d(c, x) < r\\} \\). Por lo tanto, el disco cerrado está contenido en la bola cerrada, y no hay contradicción entre sus definiciones."
+        "Explicación": "Un contraejemplo podría ser el espacio métrico con la distancia discreta."
     },
     {
         "Pregunta": "48) Dadas \\( d_1 \\) y \\( d_2 \\) métricas definidas sobre el mismo conjunto \\( X \\), la aplicación \\( d_m : X \\times X \\to \\mathbb{R} \\), definida como \\( d_m(x, y) = \\min\\{d_1(x, y), d_2(x, y)\\} \\), es una métrica.",
@@ -475,9 +475,9 @@ const listaPreguntas = [
     },
     {
         "Pregunta": "80) Considera el conjunto \\( X = \\{1, 2, 3\\} \\). La familia de subconjuntos de \\( X \\) \\( \\{ \\emptyset, \\{2\\}, \\{1,2,3\\} \\} \\) es una topología",
-        "Respuesta": "Falso",
+        "Respuesta": "Verdadero",
         "Tema": 3,
-        "Explicación": "No lo es. La familia dada no es una topología porque no es cerrada bajo intersecciones finitas ni uniones arbitrarias; por ejemplo, \\( \\{2\\} \\cup \\{1,2,3\\} = \\{1,2,3\\} \\), pero algunas combinaciones no cumplen."
+        "Explicación": "Cumple T1, T2 y T3."
     },
     {
         "Pregunta": "81) Considera el conjunto \\( X = \\{1, 2, 3\\} \\). La familia de subconjuntos de \\( X \\) \\( \\{ \\emptyset, \\{2\\}, \\{1,3\\}, \\{1,2,3\\} \\} \\) es una topología",
@@ -1263,7 +1263,7 @@ const listaPreguntas = [
         "Pregunta": "211) Sea \\( X \\) un espacio topológico, y \\( f : X \\to X \\) una biyección. \\( f \\) es un homeomorfismo si y solo si para todo \\( A \\subseteq X \\), \\( \\overline{f(A)} = f(\\overline{A}) \\).",
         "Respuesta": "Verdadero",
         "Tema": 6,
-        "Explicación": "Esta propiedad es característica de los homeomorfismos, ya que estos preservan la estructura topológica del espacio, incluyendo la cerradura de conjuntos. Es decir, la preimagen de un cerrado es cerrado, lo que satisface la condición dada."
+        "Explicación": "Probamos primero la implicación de izquierda a derecha: \n Supongamos que \\(f \\) es un homeomorfismo, la clausura de \\(A \\) se define como \\( \\overline{A} = \\bigcap_{C \\in \\mathcal{C}_{A}}  C\\), por lo que \\( f(\\overline{A}) = f(\\bigcap_{C \\in \\mathcal{C}_{A}} C) = \\bigcap_{C \\in \\mathcal{C}_{A}} f(C) \\) Ademas \\(A \\subseteq C \\iff f(A) \\subseteq f(C) \\) ya que es biyectiva, y como es cerrada \\(f(C) \\) es cerrado, \\(\\implies \\bigcap_{C \\in \\mathcal{C}_{A}} f(C) = \\overline{f(A)} \\). \nVamos ahora con la implicación de derecha a izquierda.Primero veamos que es cerrada, para ello supongamos que \\(\\forall A \\subseteq X, \\overline{f(A)} = f(\\overline{A})\\), si tomamos \\(A\\) tal que \\(A = C  \\in  \\mathcal{C}\\) cualquiera, entonces tenemos que \\(\\overline{A} = A\\) ya que \\(A\\) es cerrado, y por tanto \\(f(A) = f(\\overline{A}) \\), como \\(f(\\overline{A}) = \\overline{f(A)} \\implies f(A) = \\overline{f(A)} \\implies f(A)\\) es cerrado,  y como vale para cualquier \\(A\\), entonces la aplicación es cerrada. Finalmente veamos que es continua, voy a llamar \\(A = f^{-1}(C) \\), veamos que \\(A\\) es cerrado viendo que \\(\\overline{A}\\subseteq A\\). Fijemnos que \\(f(A) = f(f^{-1}(C)) = C\\) y por tanto \\(f(A)\\) es cerrado así que \\(\\overline{f(A)} = f(A) = f(\\overline{A})\\). Tomo \\(x \\in \\overline{A} \\implies f(x) \\in f(\\overline{A}) = f(A) = C \\). Por tanto \\(\\exists  a \\in A \\) tal que \\(f(x) = f(a)\\) y como \\(f\\) es inyectiva, entonces \\(x = a \\in A \\implies \\overline{A} \\subseteq A \\), pero como \\(A \\subseteq \\overline{A}\\) por definicion, entonces \\(A = \\overline{A} \\implies A\\) es cerrado y por tanto \\(f^{-1}(C)\\) cerrado asi que \\(f\\) continua,  y por tanto (dado que tambien es cerrada y biyectiva) homeomorfismo."
     },
     {
         "Pregunta": "212) ¿La clausura de un abierto es estrictamente mayor que el propio abierto?",
@@ -1275,31 +1275,31 @@ const listaPreguntas = [
         "Pregunta": "213) En un espacio topológico \\( X \\) se tiene que para cualquier conjunto \\( A \\) se cumple que \\( \\partial A \\subseteq \\overline{A} \\).",
         "Respuesta": "Verdadero",
         "Tema": 6,
-        "Explicación": "Sabemos que el borde de \\( A \\) está definido como \\( \\partial A = \\overline{A} \\cap \\overline{X - A} \\). Por definición, siempre estará contenido en \\( \\overline{A} \\), lo cual verifica la afirmación."
+        "Explicación": "Sabemos que por la proposición 2.6.20(F3) que el borde de \\( A \\) está definido como \\( \\partial A = \\overline{A} \\cap \\overline{X \\ A} \\). Por definición, siempre estará contenido en \\( \\overline{A} \\), lo cual verifica la afirmación."
     },
     {
-        "Pregunta": "214) Sea \\( X \\) un espacio topológico y sea \\( Y \\) un subespacio de \\( X \\) con la topología inducida. Si \\( A \\subset Y \\), entonces \\( \\text{Int}_Y(A) = Y \\cap \\text{Int}_X(A) \\).",
+        "Pregunta": "214) Sea \\( X \\) un espacio topológico y sea \\( Y \\) un subespacio de \\( X \\) con la topología inducida. Si \\( A \\subseteq Y \\), entonces \\( \\text{Int}_Y(A) = Y \\cap \\text{Int}_X(A) \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Por ejemplo, si \\( X = \\mathbb{R} \\) con la topología euclidiana y \\( Y = A = [0, 1] \\), entonces \\( \\text{Int}_Y(A) = [0, 1] \\), mientras que \\( Y \\cap \\text{Int}_X(A) = (0, 1) \\), lo que contradice la afirmación."
+        "Explicación": "Por ejemplo, si \\( X = \\mathbb{R} \\) con la topología euclidiana y \\( Y = A = [0, 1] \\), entonces \\( \\text{Int}_Y(A) = [0, 1] \\) ya que \\([0, 1] \\) es un abierto (el conjunto total) sobre la topología inducida, mientras que \\( Y \\cap \\text{Int}_X(A) = (0, 1) \\), lo que contradice la afirmación."
     },
     {
-        "Pregunta": "215) Sea \\( A \\) un subconjunto no vacío en un espacio topológico \\( X \\). Si \\( \\text{Int}(A) = \\emptyset \\), entonces \\( \\text{Int}(X - A) \\neq \\emptyset \\).",
+        "Pregunta": "215) Sea \\( A \\) un subconjunto no vacío en un espacio topológico \\( X \\). Si \\( \\text{Int}(A) = \\emptyset \\), entonces \\( \\text{Int}(X \\setminus A) \\neq \\emptyset \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Un contraejemplo es \\( A = \\mathbb{Q} \\) (los números racionales) en la recta real usual \\( \\mathbb{R} \\). En este caso, \\( \\text{Int}(A) = \\emptyset \\) y \\( \\text{Int}(X - A) = \\emptyset \\) también, ya que ni \\( \\mathbb{Q} \\) ni su complemento contienen puntos interiores en \\( \\mathbb{R} \\)."
+        "Explicación": "Un contraejemplo es \\( A = \\mathbb{Q} \\) (los números racionales) en la recta real usual \\( \\mathbb{R} \\). En este caso, \\( \\text{Int}(A) = \\emptyset \\) y \\( \\text{Int}(X \\setminus A) = \\emptyset \\) también, ya que ni \\( \\mathbb{Q} \\) ni su complemento contienen puntos interiores en \\( \\mathbb{R} \\)."
     },
     {
-        "Pregunta": "216) Sea \\( X \\) un espacio topológico y sea \\( A \\subset X \\). Si unimos el interior y el exterior de \\( A \\), obtenemos el total \\( X \\).",
+        "Pregunta": "216) Sea \\( X \\) un espacio topológico y sea \\( A \\subseteq X \\). Si unimos el interior y el exterior de \\( A \\), obtenemos el total \\( X \\).",
         "Respuesta": "Falso",
         "Tema": 6,
         "Explicación": "En la recta real, \\( A = [0, 1] \\) es un contraejemplo, ya que \\( \\text{Int}(A) \\cup \\text{Ext}(A) \\) no cubre el total \\( X \\), pues queda el borde \\( \\partial A \\) sin incluir."
     },
     {
-        "Pregunta": "217) Sea \\( X \\) un espacio topológico y \\( A \\) y \\( B \\) dos subconjuntos. Entonces \\( A \\subset B \\iff A' \\subset B' \\).",
+        "Pregunta": "217) Sea \\( X \\) un espacio topológico y \\( A \\) y \\( B \\) dos subconjuntos. Entonces \\( A \\subseteq B \\iff A' \\subseteq B' \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Los números racionales \\( \\mathbb{Q} \\) y los irracionales \\( \\mathbb{R} \\setminus \\mathbb{Q} \\) tienen el mismo conjunto derivado (todos los reales), pero son disjuntos. Solo la implicación \\( \\impliedby \\) es válida."
+        "Explicación": "Podemos considerar la topología usual sobre \\( \\mathbb{R} \\) y el conjunto de los numeros irracionales \\(A = \\mathbb{Q} \\) y su complementario \\(B = \\mathbb{R} \\setminus \\mathbb{Q} \\). Dado que tanto \\( A \\) como \\( B \\) son densos, tenemos que \\( A' = B' = \\mathbb{R} \\). Por lo que trivialmente \\( A' \\subseteq B' \\) pero \\( A \\nsubseteq B \\). Podriamos probar que la otra implicación si es cierta."
     },
     {
         "Pregunta": "218) Sea \\( D \\) un denso en un espacio topológico \\( X \\). Entonces \\( \\text{Int}(\\overline{D}) = \\emptyset \\).",
@@ -1311,7 +1311,7 @@ const listaPreguntas = [
         "Pregunta": "219) Sea \\( (X, d) \\) un espacio métrico y sea \\( x \\in X \\). Entonces \\( \\partial B(x, r) = S(x, r) \\) o \\( \\partial D(x, r) = S(x, r) \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Considera la métrica discreta en algún conjunto, como los números reales, por ejemplo. En este caso, cualquier conjunto tiene frontera vacía, lo que contradice la afirmación."
+        "Explicación": "Vamos a considerar el espacio métrico \\( (\\mathbb{R}, d) \\) donde \\(d \\) es la distancia discreta. Si tomamos \\(r = 1\\) fijemonos que \\( B(x, r) = {x} \\) y \\( D(x, r) = \\mathbb{R} \\). Calculando la esfera con esta distancia tambien tenemos que \\( S(x, r) = \\mathbb{R} \\). Y como \\( \\partial B(x, r) = \\partial {x} = \\emptyset \\) y \\( \\partial D(x, r) = \\partial {\\mathbb{R}} = \\emptyset \\), entonces ya tenemos el contraejemplo."
     },
     {
         "Pregunta": "220) En un espacio topológico \\( X \\), se tiene que para cualquier conjunto \\( A \\) se cumple que \\( \\partial A \\subset A \\).",
@@ -1365,7 +1365,7 @@ const listaPreguntas = [
         "Pregunta": "228) Sea \\( X \\) un espacio topológico y sea \\( A \\) un subconjunto. Entonces \\( \\partial A = \\partial \\text{Int}(A) \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Un contraejemplo son los números racionales \\( \\mathbb{Q} \\) en la recta real, donde la frontera de \\( \\mathbb{Q} \\) no coincide con la frontera de su interior (que es vacío)."
+        "Explicación": "Un contraejemplo son los números racionales \\( \\mathbb{Q} \\) en la recta real, donde  \\( \\partial \\mathbb{Q}  = \\mathbb{R} \\) que no coincide con la frontera de \\( \\partial \\text{Int}(A) = \\partial \\emptyset = \\emptyset \\)."
     },
     {
         "Pregunta": "229) Sea \\( X \\) un espacio topológico y \\( A, B \\subset X \\) tales que \\( A \\subset B \\). Entonces \\( \\partial A \\subset \\partial B \\).",
@@ -1377,13 +1377,13 @@ const listaPreguntas = [
         "Pregunta": "230) Sea \\( f : X \\to Y \\) una aplicación continua y suprayectiva. Si \\( A \\) es un subconjunto denso de \\( X \\), \\( f(A) \\) es denso en \\( f(X) \\).",
         "Respuesta": "Verdadero",
         "Tema": 6,
-        "Explicación": "La preimagen de un abierto no vacío en \\( f(X) \\) es un abierto no vacío en \\( X \\), que debe intersectar a \\( A \\) porque \\( A \\) es denso. Por lo tanto, \\( f(A) \\) es denso en \\( f(X) \\)."
+        "Explicación": "Tomamos \\( V \\) un abierto en \\( Y \\). Como \\( f : X \\to Y \\) es una aplicación continua, entonces \\(f^{-1}(V) \\) es un abierto de \\( X \\), y como \\(A \\) es denso, entonces \\(f^{-1}(V) \\cap A \\neq \\emptyset \\). Por tanto puedo tomar \\(x \\in f^{-1}(V) \\cap A \\) que cumplira que \\(f(x) \\in f(A) \\) y \\(f(x) \\in V \\), por lo que \\(f(A) \\cap V \\neq \\emptyset \\) y dado que esto se cumple para cualquier \\( V \\), entonces queda probado que \\(f(A) \\) es denso."
     },
     {
         "Pregunta": "231) Sea \\( X \\) un espacio topológico. Entonces el derivado de un subconjunto cualquiera de \\( X \\) es un cerrado de \\( X \\).",
         "Respuesta": "Falso",
         "Tema": 6,
-        "Explicación": "Considera \\( X \\) con la topología indiscreta y sea \\( \\{x\\} \\) un subconjunto unipuntual. En este caso, \\( \\{x\\}' \\) no es necesariamente cerrado ni abierto, ya que los conjuntos derivados no siempre cumplen esta propiedad en la topología indiscreta."
+        "Explicación": "Considera \\( X \\) con la topología indiscreta y sea \\( \\{x\\} \\) un subconjunto unipuntual. Entonces \\(y \\in {x}'\\) si y solo si \\((X \\setminus {y}) \\cup {x} \\neq \\emptyset \\) y por tanto \\({x}' = X \\setminus {x} \\) que no es ni cerrado ni abierto."
     },
     {
         "Pregunta": "232) Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Entonces es posible que \\( \\overline{A} = \\emptyset \\).",
@@ -1392,13 +1392,13 @@ const listaPreguntas = [
         "Explicación": "Esto es cierto si y solo si \\( A = \\emptyset \\), ya que la clausura de un conjunto vacío sigue siendo vacío."
     },
     {
-        "Pregunta": "233) Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Las aplicaciones \\( A \\mapsto \\overline{A} \\) y \\( A \\mapsto \\text{Int}(A) \\) son monótonas con respecto a la inclusión.",
+        "Pregunta": "233) Sea \\( X \\) un espacio topológico y \\( A \\subseteq X \\). Las aplicaciones \\( A \\mapsto \\overline{A} \\) y \\( A \\mapsto \\text{Int}(A) \\) son monótonas con respecto a la inclusión.",
         "Respuesta": "Verdadero",
         "Tema": 6,
-        "Explicación": "Sabemos que \\( A \\subset \\overline{A} \\) (\\( \\overline{A} \\) es el cerrado más pequeño que contiene a \\( A \\)) y \\( \\text{Int}(A) \\subset A \\) (\\( \\text{Int}(A) \\) es el mayor abierto contenido en \\( A \\)). Por lo tanto, estas aplicaciones son monótonas con respecto a la inclusión."
+        "Explicación": "Consideramos \\(A \\subseteq B \\), sabemos por la Proposicion 2.6.5(CL4)  que \\( \\overline{A} \\subseteq \\overline{B} \\) y por la proposicion 2.6.14(I5) que  \\( \\text{Int}(A) \\subseteq \\text{Int}(B) \\)."
     },
     {
-        "Pregunta": "234) Sea \\( X \\) un espacio topológico y \\( A \\subset X \\). Entonces es posible que \\( \\text{Int}(A) = X \\).",
+        "Pregunta": "234) Sea \\( X \\) un espacio topológico y \\( A \\subseteq X \\). Entonces es posible que \\( \\text{Int}(A) = X \\).",
         "Respuesta": "Verdadero",
         "Tema": 6,
         "Explicación": "Esto es posible si y solo si \\( A = X \\), ya que el interior de \\( A \\) coincide con \\( X \\) únicamente cuando \\( A \\) es el conjunto total."
@@ -1407,6 +1407,6 @@ const listaPreguntas = [
         "Pregunta": "235) Considera la topología indiscreta sobre \\( X \\). Entonces el conjunto \\( \\{x\\} \\) es denso para cualquier \\( x \\in X \\).",
         "Respuesta": "Verdadero",
         "Tema": 6,
-        "Explicación": "En la topología indiscreta, el único conjunto abierto no vacío es \\( X \\). Por lo tanto, cualquier conjunto no vacío, incluido \\( \\{x\\} \\), es denso en \\( X \\)."
+        "Explicación": "En la topología indiscreta, el único conjunto cerrado no vacío es \\( X \\). Por lo tanto, cualquier conjunto no vacío, incluido \\( \\{x\\} \\), es denso en \\( X \\)."
     }
 ];
