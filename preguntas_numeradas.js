@@ -1408,5 +1408,155 @@ const listaPreguntas = [
         "Respuesta": "Verdadero",
         "Tema": 6,
         "Explicación": "En la topología indiscreta, el único conjunto cerrado no vacío es \\( X \\). Por lo tanto, cualquier conjunto no vacío, incluido \\( \\{x\\} \\), es denso en \\( X \\)."
+    },
+    {
+        "Pregunta": "236) Ser \\(IIAN\\) es hereditario.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Si un espacio es IIAN, cualquier subespacio hereda esta propiedad al restringir las bases."
+    },
+    {
+        "Pregunta": "237) Considera el plano con la topología dada por la subbase \\(\\{\\mathbb{R} \\times \\{y\\} \\mid y \\in [0,1]\\}\\). Este espacio es IIAN.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "No se puede construir una base numerable que cumpla las condiciones de IIAN en esta topología."
+    },
+    {
+        "Pregunta": "238) Si un espacio es \\(T_1\\) y separable, entonces es \\(T_2\\).",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "El espacio de Sierpinski es un ejemplo que, siendo T1 y separable, no cumple T2."
+    },
+    {
+        "Pregunta": "239) La separabilidad es una propiedad topológica.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "La densidad y el cardinal se conservan bajo homeomorfismos, por lo que la separabilidad se respeta."
+    },
+    {
+        "Pregunta": "240) Si en una topología cualquier conjunto finito de puntos es cerrado, entonces es Hausdorff.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "La topología cofinita en un conjunto infinito no es Hausdorff aunque los conjuntos finitos sean cerrados."
+    },
+    {
+        "Pregunta": "241) El producto de un espacio \\(T_1\\) por otro \\(T_2\\) es \\(T_2\\).",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "Tomando un espacio T1 y multiplicándolo por \\(\\{0\\}\\), no se obtiene un espacio T2 en general."
+    },
+    {
+        "Pregunta": "242) Considera el plano con la topología dada por la subbase \\(\\{ \\mathbb{R} \\times \\{y\\} \\mid y \\in [0,1] \\}\\). Este espacio es separable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "No existe un conjunto denso contable en esta topología."
+    },
+    {
+        "Pregunta": "243) Sea \\(X\\) un espacio topológico. Dado \\(x \\in X\\) existe una base contable de entornos \\(\\{B_i \\mid i \\in \\mathbb{N}\\}\\) tal que \\(B_i \\supset B_{i+1}\\) para todo \\(i \\in \\mathbb{N}\\).",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "Esa condición caracteriza a los espacios IAN (primer contable). No todos los espacios la cumplen."
+    },
+    {
+        "Pregunta": "244) Considera un espacio topológico donde hay una familia no numerable de abiertos disjuntos dos a dos. Entonces el espacio no puede ser IAN.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Tener una familia no numerable de abiertos disjuntos contradice la posibilidad de construir una base contable de entornos para cada punto."
+    },
+    {
+        "Pregunta": "245) Ser \\(T_2\\) es una propiedad topológica.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "La separación Hausdorff se preserva bajo homeomorfismos, de modo que es una propiedad topológica."
+    },
+    {
+        "Pregunta": "246) Considera el plano con la topología dada por la subbase \\(\\{\\mathbb{R} \\times \\{y\\} \\mid y \\in [0,1]\\}\\). Este espacio es IAN.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Cada punto dispone de una base de entornos formada por conjuntos de la forma \\(\\mathbb{R} \\times \\{y\\}\\), lo que permite contar sus elementos y cumplir la primera numerabilidad."
+    },
+    {
+        "Pregunta": "247) Considera un conjunto \\(X\\) no contable con la topología cofinita. Este espacio es segundo numerable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "La topología cofinita en un conjunto no contable no admite una base contable de abiertos, por lo que no es segundo numerable."
+    },
+    {
+        "Pregunta": "248) Todo espacio primero numerable y Hausdorff es segundo numerable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "Existen ejemplos de espacios \\(T_1\\) y Hausdorff que son primeros numerables pero no segundos numerables, lo cual refuta esta afirmación."
+    },
+    {
+        "Pregunta": "249) El cociente de un espacio \\(T_1\\) es siempre \\(T_0\\).",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "En ciertos cocientes, las identificaciones de puntos pueden hacer que el espacio resultante deje de ser \\(T_0\\)."
+    },
+    {
+        "Pregunta": "250) Ser IAN es hereditario.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Al tomar un subespacio, se pueden restringir los entornos básicos para formar una base local, heredando así la primera numerabilidad."
+    },
+    {
+        "Pregunta": "251) Si tengo dos topologías \\(\\mathcal{T}\\) y \\(\\mathcal{T}'\\) tal que \\(\\mathcal{T} \\subset \\mathcal{T}'\\). Si \\(\\mathcal{T}\\) es \\(T_2\\), entonces \\(\\mathcal{T}'\\) también lo es.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Si en \\(\\mathcal{T}\\) se pueden separar puntos con abiertos, esos mismos abiertos sirven en \\(\\mathcal{T}'\\)."
+    },
+    {
+        "Pregunta": "252) Considera un conjunto \\(X\\) contable con la topología cofinita. Este espacio es segundo numerable.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "La topología cofinita sobre un conjunto contable tiene un número contable de abiertos que forman una base."
+    },
+    {
+        "Pregunta": "253) Considera un conjunto \\(X\\) no contable con la topología cofinita. Este espacio es primero numerable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "En este caso no se puede formar una base contable de entornos para cada punto."
+    },
+    {
+        "Pregunta": "254) En \\(\\mathbb{R}^2\\) con la topología usual, el conjunto \\(A := B_{d_4}((\\pi,e), \\sqrt{2}/2)\\) se puede expresar como la unión numerable de bolas euclídeas centradas en puntos de \\(\\mathbb{Q}^2\\) y radios en \\(\\{1/n \\mid n \\in \\mathbb{N}\\}\\).",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Los puntos racionales son densos en \\(\\mathbb{R}^2\\), y los radios \\(1/n\\) permiten aproximar cualquier bola."
+    },
+    {
+        "Pregunta": "255) Considera un conjunto \\(X\\) contable con la topología cofinita. Este espacio es primero numerable.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Los abiertos que contienen un punto forman una familia contable de entornos, satisfaciendo la primera numerabilidad."
+    },
+    {
+        "Pregunta": "256) Cualquier subespacio de un espacio de Hausdorff es de Hausdorff.",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Al restringir los abiertos de un espacio Hausdorff a un subespacio, se mantiene la propiedad de separar puntos."
+    },
+    {
+        "Pregunta": "257) El cociente de un espacio \\(T_2\\) es \\(T_2\\).",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "Existen ejemplos como \\(\\mathbb{R}/\\mathbb{Q}\\) donde el espacio cociente deja de ser Hausdorff."
+    },
+    {
+        "Pregunta": "258) Sea \\(X\\) un espacio topológico primero numerable. Dado \\(x \\in X\\) existe una base contable de entornos \\(\\{B_i \\mid i \\in \\mathbb{N}\\}\\) tal que \\(B_i \\supset B_{i+1}\\) para todo \\(i \\in \\mathbb{N}\\).",
+        "Respuesta": "Verdadero",
+        "Tema": 7,
+        "Explicación": "Esta es precisamente la definición de un espacio de primera numerabilidad (IAN)."
+    },
+    {
+        "Pregunta": "259) Un espacio métrico es segundo numerable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "Aunque los espacios métricos son primeros numerables, no todos son segundos numerables (requieren separabilidad)."
+    },
+    {
+        "Pregunta": "260) Cualquier subespacio de un espacio separable es separable.",
+        "Respuesta": "Falso",
+        "Tema": 7,
+        "Explicación": "El plano de Moore es un contraejemplo que muestra que no todos los subespacios de un espacio separable son separables."
     }
 ];
